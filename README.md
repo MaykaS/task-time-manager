@@ -80,13 +80,14 @@ The API provides endpoints for user management and task operations.
 All endpoints require a valid JWT token.
 
 ### Endpoints
-- `POST /api/auth/register`: Registers a new user.
-- `POST /api/auth/login`: Logs in a user and returns a JWT token.
-- `GET /api/tasks`: Retrieves all tasks for the logged-in user.
-- `POST /api/tasks`: Creates a new task.
-- `PUT /api/tasks/:taskId` : Modify an existing task.
-- `DELETE /api/tasks/:taskId`: Delete an existing task.
-- `PATCH /api/tasks/:taskId/complete`: Mark an existing task as complete.
+- `POST /api/auth/register`: Registers a new user. (No token needed)
+- `POST /api/auth/login`: Logs in a user and returns a JWT token. (No token needed)
+- `GET /api/tasks`: Retrieves all tasks for the logged-in user. (Token required)
+- `POST /api/tasks`: Creates a new task. (Token required)
+- `PUT /api/tasks/:taskId` : Modify an existing task. (Token required)
+- `DELETE /api/tasks/:taskId`: Delete an existing task. (Token required)
+- `PATCH /api/tasks/:taskId/complete`: Mark an existing task as complete. (Token required)
+- `POST /api/auth/logout`: Logs out the user by invalidating the token or clearing the session. (Token required)
 
 ~~For detailed API documentation, please refer to the [API Docs](link-to-swagger-or-postman-collection).~~
 
