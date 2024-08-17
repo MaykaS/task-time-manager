@@ -1,9 +1,9 @@
 const request = require('supertest');
-const app = require('../index'); // Import your app
+const app = require('../index'); 
 const mongoose = require('mongoose');
-const User = require('../models/users'); // Import your User model
+const User = require('../models/users'); 
 
-describe('Test the tasks API', () => {
+describe('Test the authentication', () => {
   beforeAll(async () => {
     // Connect to the test database before running tests
     await mongoose.connect(process.env.MONGODB_URI, {
