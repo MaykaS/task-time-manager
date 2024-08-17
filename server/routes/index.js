@@ -10,5 +10,6 @@ router.post('/register',userController.registerUser);
 router.post('/login', userController.loginUser);
 
 router.post('/tasks',authenticateToken, taskController.createTask);
+router.put('/tasks/:taskid',authenticateToken,taskController.editTask);
 
 module.exports = router;

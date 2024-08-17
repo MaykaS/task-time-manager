@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1723916720062" clover="3.2.0">
-  <project timestamp="1723916720063" name="All files">
-    <metrics statements="117" coveredstatements="92" conditionals="48" coveredconditionals="23" methods="17" coveredmethods="11" elements="182" coveredelements="126" complexity="0" loc="117" ncloc="117" packages="4" files="7" classes="7"/>
+<coverage generated="1723918230278" clover="3.2.0">
+  <project timestamp="1723918230278" name="All files">
+    <metrics statements="135" coveredstatements="107" conditionals="58" coveredconditionals="30" methods="18" coveredmethods="12" elements="211" coveredelements="149" complexity="0" loc="135" ncloc="135" packages="4" files="7" classes="7"/>
     <package name="server">
       <metrics statements="15" coveredstatements="14" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="2"/>
       <file name="index.js" path="D:\workspace\task-time-manager\server\index.js">
@@ -24,9 +24,9 @@
       </file>
     </package>
     <package name="server.controllers">
-      <metrics statements="49" coveredstatements="42" conditionals="20" coveredconditionals="14" methods="3" coveredmethods="3"/>
+      <metrics statements="66" coveredstatements="56" conditionals="30" coveredconditionals="21" methods="4" coveredmethods="4"/>
       <file name="tasksControllers.js" path="D:\workspace\task-time-manager\server\controllers\tasksControllers.js">
-        <metrics statements="25" coveredstatements="20" conditionals="14" coveredconditionals="10" methods="1" coveredmethods="1"/>
+        <metrics statements="42" coveredstatements="34" conditionals="24" coveredconditionals="17" methods="2" coveredmethods="2"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
@@ -52,6 +52,23 @@
         <line num="49" count="2" type="stmt"/>
         <line num="50" count="2" type="stmt"/>
         <line num="55" count="0" type="stmt"/>
+        <line num="59" count="2" type="stmt"/>
+        <line num="60" count="2" type="stmt"/>
+        <line num="61" count="2" type="stmt"/>
+        <line num="62" count="2" type="stmt"/>
+        <line num="65" count="2" type="stmt"/>
+        <line num="66" count="2" type="stmt"/>
+        <line num="67" count="2" type="stmt"/>
+        <line num="70" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="73" count="2" type="cond" truecount="3" falsecount="1"/>
+        <line num="74" count="0" type="stmt"/>
+        <line num="78" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="79" count="1" type="stmt"/>
+        <line num="83" count="1" type="stmt"/>
+        <line num="89" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="90" count="1" type="stmt"/>
+        <line num="93" count="0" type="stmt"/>
       </file>
       <file name="usersControllers.js" path="D:\workspace\task-time-manager\server\controllers\usersControllers.js">
         <metrics statements="24" coveredstatements="22" conditionals="6" coveredconditionals="4" methods="2" coveredmethods="2"/>
@@ -88,16 +105,16 @@
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
-        <line num="11" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="11" count="3" type="cond" truecount="1" falsecount="1"/>
         <line num="12" count="0" type="stmt"/>
-        <line num="13" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="13" count="3" type="cond" truecount="1" falsecount="1"/>
         <line num="14" count="0" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
         <line num="19" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="20" count="0" type="stmt"/>
         <line num="21" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="22" count="0" type="stmt"/>
-        <line num="36" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="36" count="3" type="cond" truecount="1" falsecount="1"/>
         <line num="37" count="0" type="stmt"/>
         <line num="44" count="2" type="cond" truecount="1" falsecount="1"/>
         <line num="45" count="0" type="stmt"/>
@@ -125,22 +142,22 @@
       </file>
     </package>
     <package name="server.routes">
-      <metrics statements="19" coveredstatements="19" conditionals="6" coveredconditionals="4" methods="2" coveredmethods="2"/>
+      <metrics statements="20" coveredstatements="20" conditionals="6" coveredconditionals="4" methods="2" coveredmethods="2"/>
       <file name="authenticationToken.js" path="D:\workspace\task-time-manager\server\routes\authenticationToken.js">
         <metrics statements="10" coveredstatements="10" conditionals="6" coveredconditionals="4" methods="2" coveredmethods="2"/>
         <line num="1" count="2" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
-        <line num="5" count="4" type="stmt"/>
-        <line num="6" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="8" count="4" type="cond" truecount="1" falsecount="1"/>
-        <line num="10" count="4" type="stmt"/>
-        <line num="11" count="4" type="cond" truecount="1" falsecount="1"/>
-        <line num="12" count="4" type="stmt"/>
-        <line num="13" count="4" type="stmt"/>
+        <line num="5" count="6" type="stmt"/>
+        <line num="6" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="8" count="6" type="cond" truecount="1" falsecount="1"/>
+        <line num="10" count="6" type="stmt"/>
+        <line num="11" count="6" type="cond" truecount="1" falsecount="1"/>
+        <line num="12" count="6" type="stmt"/>
+        <line num="13" count="6" type="stmt"/>
         <line num="17" count="2" type="stmt"/>
       </file>
       <file name="index.js" path="D:\workspace\task-time-manager\server\routes\index.js">
-        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
@@ -149,7 +166,8 @@
         <line num="9" count="2" type="stmt"/>
         <line num="10" count="2" type="stmt"/>
         <line num="12" count="2" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
       </file>
     </package>
   </project>
