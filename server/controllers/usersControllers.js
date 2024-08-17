@@ -4,7 +4,6 @@ const User = require('../models/users.js');
 
 //User registration
 const registerUser = async(req,res)=>{
-    console.log("got in register");
     const{email,password} = req.body;
     try{
         const existingUser = await User.findOne({email});
