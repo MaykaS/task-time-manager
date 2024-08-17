@@ -2,7 +2,7 @@
   "name": "server",
   "version": "1.0.0",
   "description": "API that conform to REST practices and provide the following functionality: - List, create, read, update, and delete Tasks",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
