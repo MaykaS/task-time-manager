@@ -46,10 +46,9 @@ describe('Test tasks API',()=>{
         .post('/tasks')
         .set('Authorization', `Bearer ${token}`)
         .send({
-            title: 'Test Task',
-            dueDate: '2024-12-31', // Future date
-            time: '12:00',
-            userId: userId
+            title: "Test Task",
+            dueDate: "2024-12-31", // Future date
+            time: "12:00"
         });
         
         expect(response.status).toBe(201); //created
@@ -62,7 +61,7 @@ describe('Test tasks API',()=>{
         .post('/tasks')
         .set('Authorization', `Bearer ${token}`)
         .send({
-            dueDate: '2024-12-31', // Past date
+            dueDate: '2024-12-31', // Future date
             time: '13:00',
             userId: userId
         });

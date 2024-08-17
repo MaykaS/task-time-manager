@@ -28,7 +28,7 @@ const userSchema = new Schema({
         },
         message: ({value}) => {
             if(value.length < 6)
-            return `Password length must be atleast 6 , got only ${value.length} char`;
+            return `Password length must be min 6 , got only ${value.length} char`;
             else if (value.length >10){
                 return `Password length must be max 10, got ${value.length} char`;
             }

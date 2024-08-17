@@ -17,7 +17,7 @@ const taskSchema = new Schema({
             },
             message: ({value}) => {
                 if(value.length < 4)
-                return `Title length must be atleast 4 , got only ${value.length} char`;
+                return `Title length must be min 4 , got only ${value.length} char`;
                 else if (value.length >15){
                     return `Title length must be max 15, got ${value.length} char`;
                 }
@@ -54,12 +54,12 @@ const taskSchema = new Schema({
     completed: { 
         type: Boolean,
         default: false, 
-    },
-    userId: { 
-        type: Schema.Types.ObjectId, 
-        ref: 'User', 
-        required: true 
-    }
+     }//,
+    // userId: { 
+    //     type: Schema.Types.ObjectId, 
+    //     ref: 'User', 
+    //     required: true 
+    // }
 });
 
 const Task = mongoose.model('Task', taskSchema);
