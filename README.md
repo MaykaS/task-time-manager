@@ -6,17 +6,25 @@
 Task-Time-Manager is a full-featured task management application built with the MERN stack. It allows users to create, manage, and track tasks efficiently with features like task categorization, priority setting, and deadline reminders.
 
 ### Key Features
-- **Task Creation**: Users can create new tasks by providing a title, selecting a category, adding a description, setting a due date, and choosing a priority level. This feature ensures tasks are well-organized and prioritized according to user needs.
-- **Task Editing**: Modify existing tasks, including the title, category, description, due date, and priority. This feature allows users to adjust tasks as requirements evolve.
-- **Task Deletion**: Permanently delete tasks from your list to maintain a clean and relevant task overview.
-- **Mark Task as Completed**: Mark tasks as completed, visually distinguishing them from incomplete tasks. This helps in tracking progress and managing workload effectively.
-- **Task Categorization**: Organize tasks into predefined categories, each represented by an icon. This helps users easily identify and manage tasks based on their type or urgency.
-- **Deadline Reminder**: Receive reminders 1 hour before the deadline of an uncompleted task. This feature helps users stay on top of their tasks and meet deadlines.
-- **User Authentication**: Secure access to the application with user registration and login via email and password. This ensures that all tasks are private and only accessible to the respective user.
-- **Task Views**:
-  - **List View**: View all tasks in a standard list format, with options to sort or filter tasks based on criteria such as due date, priority, or completion status.
-  - **Calendar View**: View tasks on a calendar, with tasks displayed on their respective due dates. Tasks are color-coded based on priority, providing a clear visual overview of upcoming tasks.
-- **Database Storage**: All tasks and user information are securely stored in a MongoDB database, ensuring data persistence and accessibility across sessions and devices.
+<ol>
+  <li><strong>Task Creation:</strong> Users can create new tasks by providing a title, selecting a category, adding a description, setting a due date, and choosing a priority level.</li>
+  <li><strong>Task Retrieving:</strong> Users can view all the tasks he has.</li>
+  <li><strong>Task Specific Retrieving:</strong> Users can view a specific task from their list.</li>
+  <li><strong>Task Editing:</strong> Users can modify the details of existing tasks, including title, category, description, due date, and priority.</li>
+  <li><strong>Task Deletion:</strong> Users can permanently delete tasks from their list.</li>
+<li><strong>Mark Task as Completed:</strong> Users can mark tasks as completed, which will visually distinguish them from incomplete tasks.</li>
+  <li><strong>Task Categorization:</strong> Tasks can be organized into predefined categories, each represented by an icon, to help users easily identify them.</li>
+<li><strong>Deadline Reminder:</strong> Reminder will show 1 hour prior to the uncompleted task deadline. - BONUS FEATURE </li>
+  <li><strong>User Authentication:</strong> Users must register and log in using their email and password to access the application.</li>
+  <li><strong>Task Views:</strong> 
+    <ol>
+      <li><strong>List View:</strong> Users can see all their tasks in a standard list format, with options to sort or filter tasks.</li>
+      <li><strong>Calendar View:</strong> Users can view tasks on a calendar, with tasks displayed on their respective due dates. Tasks will be color-coded based on their priority.</li>
+    </ol>
+  </li>
+  <li><strong>Database Storage:</strong> All tasks and user information are stored in a MongoDB database, ensuring data persistence across sessions.</li>
+ <li><strong> Log Out:</strong> Users can log out of the application.</li>
+</ol>
 
 ## Table of Contents
 - [Installation](#installation)
