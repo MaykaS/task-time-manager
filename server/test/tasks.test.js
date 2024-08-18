@@ -7,6 +7,8 @@ const Task = require('../models/tasks');
 describe('Test tasks API',()=>{
     let token;
     let userId;
+    let taskId;
+    let completedTaskId;
 
     beforeAll(async () => {
         // Connect to the test database
@@ -43,6 +45,18 @@ describe('Test tasks API',()=>{
            time: "12:00"
          });
          taskId = taskResponse.body.task._id; // Save task ID for editing tests
+
+         //Create a complete task to use for markAsComplete tests
+         const completedTaskResponse = await request(app)
+         .post('/tasks')
+         .set('Authorization', `Bearer ${token}`)
+         .send({
+            title: "Completed Task",
+            dueDate: "2024-12-31", // Future date
+            time: "12:00",
+            completed: true // Set as completed initially
+         });
+         completedTaskId = completedTaskResponse.body.task._id; // Save task ID for marking tests
 
       });
     
@@ -140,8 +154,35 @@ describe('Test tasks API',()=>{
         expect(response.status).toBe(400); // Bad Request
         expect(response.body).toHaveProperty('message', 'Due date cannot be in the past');
       });
+      
+      //TODO: Task MarkAsComplete
+      it('Test Case 1: A task can be marked as completed', async()=>{
+        const response = await request(app)
+        .patch(`/tasks/${taskId}/complete`)
+        .set('Authorization', `Bearer ${token}`);
 
-      //TODO: Task Deleting
+        expect(response.status).toBe(200); //OK
+        expect(response.body).toHaveProperty('message', 'Task marked as completed');
+
+        //Verify its indid completed
+        const updatedTask = await Task.findById(taskId);
+        expect(updatedTask.completed).toBe(true);
+      });
+
+      it('Test Case 2: Marking an already completed task does not alter its state', async()=>{
+        const response = await request(app)
+        .patch(`/tasks/${completedTaskId}/complete`)
+        .set('Authorization', `Bearer ${token}`);
+
+        expect(response.status).toBe(200); //OK
+        expect(response.body).toHaveProperty('message', 'Task marked as completed');
+
+        //Verify its still completed
+        const updatedTask = await Task.findById(taskId);
+        expect(updatedTask.completed).toBe(true);
+      });
+
+      //Task Deleting
       it('Test Case 1: A task can be successfully deleted', async () => {
         const response = await request(app)
           .delete(`/tasks/${taskId}`)
@@ -152,7 +193,7 @@ describe('Test tasks API',()=>{
       });
     
       it('Test Case 2: Deletion fails when attempting to delete a task that does not exist', async () => {
-        const invalidkId = mongoose.Types.ObjectId(); // Get random valid objectId
+        const invalidId = new mongoose.Types.ObjectId(); // Get random valid objectId
         const response = await request(app)
           .delete(`/tasks/${invalidId}`)
           .set('Authorization', `Bearer ${token}`);
@@ -161,6 +202,5 @@ describe('Test tasks API',()=>{
         expect(response.body).toHaveProperty('message', 'Task not found');
       });
 
-      //TODO: Task MarkAsComplete
 
 })
