@@ -90,9 +90,9 @@ All endpoints require a valid JWT token.
 ### Endpoints
 - `POST /register`: Registers a new user. (No token needed)
 - `POST /login`: Logs in a user and returns a JWT token. (No token needed)
+- `POST /tasks`: Creates a new task. (Token required)
 - `GET /tasks`: Retrieves all tasks for the logged-in user. (Token required)
 - `GET /tasks/:taskId`: Retrieves a specific task for the logged-in user. (Token required)
-- `POST /tasks`: Creates a new task. (Token required)
 - `PUT /tasks/:taskId` : Modify an existing task. (Token required)
 - `DELETE /tasks/:taskId`: Delete an existing task. (Token required)
 - `PATCH /tasks/:taskId/complete`: Mark an existing task as complete. (Token required)
