@@ -8,8 +8,8 @@ Task-Time-Manager is a full-featured task management application built with the 
 ### Key Features
 <ol>
   <li><strong>Task Creation:</strong> Users can create new tasks by providing a title, selecting a category, adding a description, setting a due date, and choosing a priority level.</li>
-  <li><strong>Task Retrieving:</strong> Users can view all the tasks he has.</li>
-  <li><strong>Task Specific Retrieving:</strong> Users can view a specific task from their list.</li>
+  <li><strong>Tasks Retrieving:</strong> Users can view all the tasks he has.</li>
+  <li><strong>Task Retrieving:</strong> Users can view a specific task from their list.</li>
   <li><strong>Task Editing:</strong> Users can modify the details of existing tasks, including title, category, description, due date, and priority.</li>
   <li><strong>Task Deletion:</strong> Users can permanently delete tasks from their list.</li>
 <li><strong>Mark Task as Completed:</strong> Users can mark tasks as completed, which will visually distinguish them from incomplete tasks.</li>
