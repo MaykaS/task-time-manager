@@ -100,11 +100,22 @@ exports.editTask = async(req,res)=>{
     }
 }
 
-//Task  Deletion
-//TODO: exports.deleteTask
+//TODO: Task  Deletion
+exports.deleteTask = async(req,res)=>{
+    try{
+        const id  = req.params.taskid;
+        const deletedTask = await Task.findByIdAndDelete(id);
+        if(!deletedTask) return res.status(404).json({message: "Task not found"});
+        res.status(200).json({ message: 'Task deleted successfully' });
+    }
+    catch(error){
+        res.status(500).json({ message: "Server error", error: error.message });
+    }
+}
 
-//Task Completion
-//TODO: exports.markTaskComplete
+
+//TODO:Task Completion
+//exports.markTaskComplete
 
 
 
