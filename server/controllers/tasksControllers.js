@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const Task = require('../models/tasks');
 
+//Task Creation
 exports.createTask = async (req, res) => {
     try {
         const { title, category, description, dueDate, time, priority } = req.body;
@@ -56,6 +57,11 @@ exports.createTask = async (req, res) => {
     }
 };
 
+//TODO: exports.retriveTasks
+
+//TODO: exports.retriveTask
+
+//Task Edition
 exports.editTask = async(req,res)=>{
     try {
         const id  = req.params.taskid;
@@ -93,4 +99,12 @@ exports.editTask = async(req,res)=>{
         res.status(500).json({ message: "Server error", error: error.message });
     }
 }
+
+//Task  Deletion
+//TODO: exports.deleteTask
+
+//Task Completion
+//TODO: exports.markTaskComplete
+
+
 

@@ -136,5 +136,5 @@ describe('Test tasks API',()=>{
         expect(response.status).toBe(400); // Bad Request
         expect(response.body).toHaveProperty('message', 'Due date cannot be in the past');
       });
-    
+
 })
