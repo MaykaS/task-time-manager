@@ -11,8 +11,8 @@ router.post('/login', userController.loginUser);
 //router.post('/logout',authenticateToken,userController.logoutUser);
 
 router.post('/tasks',authenticateToken, taskController.createTask);
-//router.get('/tasks',authenticateToken, taskController.retriveTasks);
-//router.get('/tasks/:taskid',authenticateToken, taskController.retriveTask);
+router.get('/tasks',authenticateToken, taskController.retriveTasks);
+router.get('/tasks/:taskid',authenticateToken, taskController.retriveTask);
 router.put('/tasks/:taskid',authenticateToken,taskController.editTask);
 router.delete('/tasks/:taskid',authenticateToken,taskController.deleteTask);
 router.patch('/tasks/:taskid/complete',authenticateToken,taskController.markTaskComplete);

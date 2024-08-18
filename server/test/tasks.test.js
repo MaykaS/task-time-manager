@@ -150,7 +150,8 @@ describe('Test tasks API',()=>{
         expect(response.body).toBeInstanceOf(Array);
         expect(response.body.length).toBe(initialTaskCount + 1); // One more than before
       });
-    
+  
+      //FIXME: somehow check without deleting all 4 - in postman it passes
       it('Test Case 2: An empty array is returned if the user has no tasks', async () => {
         // Delete existing task
         await request(app)
@@ -192,7 +193,7 @@ describe('Test tasks API',()=>{
         expect(response.status).toBe(200); // OK
         expect(response.body).toHaveProperty('task');
         expect(response.body.task._id).toBe(taskId); // Check ID
-        expect(response.body.task.title).toBe('Test Task');
+        expect(response.body.task.title).toBe('Initial Task');
         expect(response.body.task.dueDate).toBe('2024-12-31');
         expect(response.body.task.time).toBe('12:00');
       });
@@ -204,7 +205,7 @@ describe('Test tasks API',()=>{
           .set('Authorization', `Bearer ${token}`);
 
         expect(response.status).toBe(404); 
-        expect(reposonse.body).toHaveProperty('message', 'Task not found');
+        expect(response.body).toHaveProperty('message', 'Task not found');
       });
 
       //Task Editing
@@ -233,7 +234,7 @@ describe('Test tasks API',()=>{
         expect(new Date(response.body.task.dueDate)).toEqual(new Date(newDetails.dueDate));
         expect(response.body.task.priority).toBe(newDetails.priority);
       });
-
+      
       it('Test Case 2: Editing fails if the new due date is in the past', async () => {
         const newDetails = {
           title: 'Updated Title',

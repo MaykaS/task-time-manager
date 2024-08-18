@@ -58,9 +58,30 @@ exports.createTask = async (req, res) => {
     }
 };
 
-//TODO: exports.retriveTasks
+//Get Tasks
+exports.retriveTasks = async(req,res)=>{
+    try{
+        const tasks = await Task.find({userId : req.userId});
+        return res.status(200).json(tasks);
+    }
+    catch(error){
+        res.status(500).json({ message: "Server error", error: error.message });
+    }
+}
 
-//TODO: exports.retriveTask
+//Get Task
+exports.retriveTask = async(req,res)=>{
+    try{
+        const id = req.params.taskid;
+        const task = await Task.findById(id);
+
+        if(!task) return res.status(404).json({message: 'Task not found'});
+        return res.status(200).json({task: task});
+    }
+    catch(error){
+        res.status(500).json({ message: "Server error", error: error.message });
+    }
+}
 
 //Task Edition
 exports.editTask = async(req,res)=>{
