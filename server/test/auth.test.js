@@ -18,7 +18,6 @@ describe('Test the authentication', () => {
     await mongoose.connection.close();
   });
 
-  // User Authentication
   it('Test Case 1: User registration works with a valid email and password.', async () => {
     const response = await request(app)
       .post('/register')
@@ -32,7 +31,6 @@ describe('Test the authentication', () => {
   });
 
 
-  // Test user login
   it('Test Case 3: User login returns a JWT token for valid credentials.', async () => {
     // First, register a user
     await request(app)
@@ -54,7 +52,6 @@ describe('Test the authentication', () => {
     expect(response.body).toHaveProperty('token'); //login returns a token
   });
 
-  // Test login with incorrect credentials
   it('Test Case 4: should not login with incorrect credentials', async () => {
     const response = await request(app)
       .post('/login')
@@ -88,4 +85,8 @@ describe('Test the authentication', () => {
     expect(response.status).toBe(400);
     expect(response.body).toHaveProperty('message', 'Invalid credentials');
   });
+
+  //TODO: Test Case 1: The user is logged out successfully.
+
+  //TODO: Test Case 2: The JWT token is invalidated after logout.
 });

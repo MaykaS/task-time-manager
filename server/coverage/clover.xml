@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1723918230278" clover="3.2.0">
-  <project timestamp="1723918230278" name="All files">
-    <metrics statements="135" coveredstatements="107" conditionals="58" coveredconditionals="30" methods="18" coveredmethods="12" elements="211" coveredelements="149" complexity="0" loc="135" ncloc="135" packages="4" files="7" classes="7"/>
+<coverage generated="1723973698307" clover="3.2.0">
+  <project timestamp="1723973698308" name="All files">
+    <metrics statements="134" coveredstatements="106" conditionals="58" coveredconditionals="30" methods="18" coveredmethods="12" elements="210" coveredelements="148" complexity="0" loc="134" ncloc="134" packages="4" files="7" classes="7"/>
     <package name="server">
       <metrics statements="15" coveredstatements="14" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="2"/>
       <file name="index.js" path="D:\workspace\task-time-manager\server\index.js">
@@ -24,54 +24,54 @@
       </file>
     </package>
     <package name="server.controllers">
-      <metrics statements="66" coveredstatements="56" conditionals="30" coveredconditionals="21" methods="4" coveredmethods="4"/>
+      <metrics statements="65" coveredstatements="55" conditionals="30" coveredconditionals="21" methods="4" coveredmethods="4"/>
       <file name="tasksControllers.js" path="D:\workspace\task-time-manager\server\controllers\tasksControllers.js">
         <metrics statements="42" coveredstatements="34" conditionals="24" coveredconditionals="17" methods="2" coveredmethods="2"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="4" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
         <line num="6" count="4" type="stmt"/>
-        <line num="9" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
         <line num="10" count="4" type="stmt"/>
         <line num="11" count="4" type="stmt"/>
-        <line num="14" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="17" count="3" type="cond" truecount="3" falsecount="1"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="22" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="25" count="3" type="stmt"/>
-        <line num="26" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="29" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="30" count="1" type="stmt"/>
-        <line num="34" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="35" count="0" type="stmt"/>
-        <line num="39" count="2" type="stmt"/>
-        <line num="49" count="2" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="15" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="18" count="3" type="cond" truecount="3" falsecount="1"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="23" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="26" count="3" type="stmt"/>
+        <line num="27" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="30" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="35" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="40" count="2" type="stmt"/>
         <line num="50" count="2" type="stmt"/>
-        <line num="55" count="0" type="stmt"/>
-        <line num="59" count="2" type="stmt"/>
-        <line num="60" count="2" type="stmt"/>
-        <line num="61" count="2" type="stmt"/>
-        <line num="62" count="2" type="stmt"/>
+        <line num="51" count="2" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
         <line num="65" count="2" type="stmt"/>
         <line num="66" count="2" type="stmt"/>
         <line num="67" count="2" type="stmt"/>
-        <line num="70" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="71" count="0" type="stmt"/>
-        <line num="73" count="2" type="cond" truecount="3" falsecount="1"/>
-        <line num="74" count="0" type="stmt"/>
-        <line num="78" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="79" count="1" type="stmt"/>
-        <line num="83" count="1" type="stmt"/>
-        <line num="89" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="90" count="1" type="stmt"/>
-        <line num="93" count="0" type="stmt"/>
+        <line num="68" count="2" type="stmt"/>
+        <line num="71" count="2" type="stmt"/>
+        <line num="72" count="2" type="stmt"/>
+        <line num="73" count="2" type="stmt"/>
+        <line num="76" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="79" count="2" type="cond" truecount="3" falsecount="1"/>
+        <line num="80" count="0" type="stmt"/>
+        <line num="84" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="85" count="1" type="stmt"/>
+        <line num="89" count="1" type="stmt"/>
+        <line num="95" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="96" count="1" type="stmt"/>
+        <line num="99" count="0" type="stmt"/>
       </file>
       <file name="usersControllers.js" path="D:\workspace\task-time-manager\server\controllers\usersControllers.js">
-        <metrics statements="24" coveredstatements="22" conditionals="6" coveredconditionals="4" methods="2" coveredmethods="2"/>
+        <metrics statements="23" coveredstatements="21" conditionals="6" coveredconditionals="4" methods="2" coveredmethods="2"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
@@ -95,7 +95,6 @@
         <line num="32" count="2" type="stmt"/>
         <line num="33" count="2" type="stmt"/>
         <line num="36" count="0" type="stmt"/>
-        <line num="40" count="2" type="stmt"/>
       </file>
     </package>
     <package name="server.models">
@@ -165,9 +164,9 @@
         <line num="7" count="2" type="stmt"/>
         <line num="9" count="2" type="stmt"/>
         <line num="10" count="2" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
         <line num="13" count="2" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
       </file>
     </package>
   </project>

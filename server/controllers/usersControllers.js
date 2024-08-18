@@ -39,5 +39,3 @@ exports.registerUser = async(req,res)=>{
 
 // TODO: User Logout
 //exports.logoutUser =
-
-module.exports = {registerUser, loginUser};

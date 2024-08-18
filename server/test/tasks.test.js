@@ -97,6 +97,10 @@ describe('Test tasks API',()=>{
         expect(response.body).toHaveProperty('message', 'Due date cannot be in the past');
       });
 
+      //TODO: Getting Tasks
+
+      //TODO: Getting Task
+
       //Task Editing
       it('Test Case 1: Existing task details can be successfully modified', async () => {
         const newDetails = {
@@ -136,5 +140,27 @@ describe('Test tasks API',()=>{
         expect(response.status).toBe(400); // Bad Request
         expect(response.body).toHaveProperty('message', 'Due date cannot be in the past');
       });
+
+      //TODO: Task Deleting
+      it('Test Case 1: A task can be successfully deleted', async () => {
+        const response = await request(app)
+          .delete(`/tasks/${taskId}`)
+          .set('Authorization', `Bearer ${token}`);
+    
+        expect(response.status).toBe(200); // Deleted OK
+        expect(response.body).toHaveProperty('message', 'Task deleted successfully');
+      });
+    
+      it('Test Case 2: Deletion fails when attempting to delete a task that does not exist', async () => {
+        const invalidkId = mongoose.Types.ObjectId(); // Get random valid objectId
+        const response = await request(app)
+          .delete(`/tasks/${invalidId}`)
+          .set('Authorization', `Bearer ${token}`);
+    
+        expect(response.status).toBe(404); // Not found
+        expect(response.body).toHaveProperty('message', 'Task not found');
+      });
+
+      //TODO: Task MarkAsComplete
 
 })
