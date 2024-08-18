@@ -4,7 +4,7 @@ const Task = require('../models/tasks');
 //Task Creation
 exports.createTask = async (req, res) => {
     try {
-        const { title, category, description, dueDate, time, priority } = req.body;
+        const { title, category, description, dueDate, time, priority, completed } = req.body;
 
         // Extract user ID from the token
         const token = req.headers.authorization.split(' ')[1];
@@ -44,6 +44,7 @@ exports.createTask = async (req, res) => {
             dueDate,
             time,
             priority,
+            completed : completed?completed:false,
             userId
         });
 
@@ -100,7 +101,7 @@ exports.editTask = async(req,res)=>{
     }
 }
 
-//TODO: Task  Deletion
+//Task  Deletion
 exports.deleteTask = async(req,res)=>{
     try{
         const id  = req.params.taskid;
@@ -113,9 +114,23 @@ exports.deleteTask = async(req,res)=>{
     }
 }
 
+//Task Completion
+exports.markTaskComplete = async(req,res)=>{
+    try{
+        const id = req.params.taskid;
+        const task = await Task.findById(id);
 
-//TODO:Task Completion
-//exports.markTaskComplete
+        if(!task) return res.status(404).json({message: "Task not found"});
+        if (task.completed) return res.status(200).json({ message: 'Task is already completed' });
+
+        task.completed=true;
+        await task.save();
+        return res.status(200).json({ message: 'Task marked as completed',task});
+    }
+    catch(error){
+        res.status(500).json({ message: "Server error", error: error.message });
+    }
+}
 
 
 

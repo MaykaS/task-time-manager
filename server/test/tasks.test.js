@@ -175,7 +175,7 @@ describe('Test tasks API',()=>{
         .set('Authorization', `Bearer ${token}`);
 
         expect(response.status).toBe(200); //OK
-        expect(response.body).toHaveProperty('message', 'Task marked as completed');
+        expect(response.body).toHaveProperty('message', 'Task is already completed');
 
         //Verify its still completed
         const updatedTask = await Task.findById(taskId);
