@@ -1,0 +1,5 @@
+footer {
+    margin-top: auto; /* Push footer to the bottom */
+    width: 100%; /* Make footer full width */
+    text-align: center; 
+}
