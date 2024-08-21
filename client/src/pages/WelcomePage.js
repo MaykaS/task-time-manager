@@ -3,16 +3,32 @@ import Footer from "../component/Footer";
 import coolpanda from "../pics/coolpanda.jpeg";
 import './WelcomePage.css';
 import NavBar from "../component/NavBar";
+import RegistrationForm from '../component/RegistrationForm';
+import LoginForm from "../component/LoginForm";
 
 
 const WelcomePage = () =>{
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     //FIXME: for the real things
+    const [showLoginForm, setShowLoginForm] = useState(false);
     const handleLogin = () =>{
-        setIsLoggedIn(true);
-        alert("logged in");
+        setShowLoginForm(true);
+        setShowRegistrationForm(false);
+        
     }
-    const handleRegister = () =>{alert("registered!");} 
+    const [showRegistrationForm, setShowRegistrationForm] = useState(false);
+    const handleRegister = () =>{
+        setShowRegistrationForm(true);
+        setShowLoginForm(false);
+    }
+    const handleCloseForm = () => {
+        setShowRegistrationForm(false);
+        setShowLoginForm(false);
+    }; 
+    const handleSuccessfulLogin = () => {
+        setIsLoggedIn(true);
+        handleCloseForm(); // Close the login form after successful login
+    };
 
     return(
         <div className="welcome-container">
@@ -26,6 +42,8 @@ const WelcomePage = () =>{
                 {isLoggedIn && <NavBar/>}
             </div>
             <Footer/>
+            {showRegistrationForm && <RegistrationForm onClose={handleCloseForm} />} {/* Show Registration Form */}
+            {showLoginForm && <LoginForm onSuccessfulLogin={handleSuccessfulLogin} onClose={handleCloseForm} />} {/* Show Login Form */}
         </div>
     )
     
@@ -34,6 +52,6 @@ const WelcomePage = () =>{
 /**
  * TODO: 
  * 1. navbar only seen after successeful login 
- * 2. action sheet on buttons 
- */
+ * 2. Add functionality to buttons
+ **/
 export default WelcomePage;
