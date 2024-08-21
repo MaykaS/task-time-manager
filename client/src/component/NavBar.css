@@ -1,0 +1,45 @@
+.navbar {
+    width: 200px; /* Fixed width for the navbar */
+    background-color: #333; /* Dark background color */
+    position: fixed; /* Stick the navbar to the left side */
+    top: 0;
+    left: 0;
+    height: 50%; /* Full height */
+    display: flex;
+    flex-direction: column; /* Arrange items vertically */
+    align-items: flex-start; /* Align links to the left */
+    padding-top: 20px; /* Space at the top */
+    padding-left: 10px; /* Add padding to align text */
+}
+.navbar img{
+    text-align: center;
+    width: 150px; 
+    height: auto;
+    margin-bottom: 20px; 
+    padding-left: 20px; /* Add padding to align text */
+}
+.navbar ul {
+    list-style-type: none; /* Remove bullet points */
+    margin: 0;
+    padding: 0;
+    width: 100%; /* Make list items take full width */
+}
+
+.navbar ul li {
+    width: 100%; /* Make list items take full width */
+    text-align: left; /* Align text to the left */
+    margin-bottom: 10px; /* Space between list items */
+}
+
+.navbar ul li a {
+    color: white; /* White text */
+    text-decoration: none; /* Remove underline */
+    padding: 10px 20px; /* Padding for links */
+    display: block; /* Block-level links */
+}
+
+.navbar ul li a:hover {
+    background-color: #ddd; /* Light background on hover */
+    color: black; /* Black text on hover */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
