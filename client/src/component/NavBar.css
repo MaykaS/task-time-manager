@@ -4,7 +4,6 @@
     position: fixed; /* Stick the navbar to the left side */
     top: 0;
     left: 0;
-    height: 50%; /* Full height */
     display: flex;
     flex-direction: column; /* Arrange items vertically */
     align-items: flex-start; /* Align links to the left */
