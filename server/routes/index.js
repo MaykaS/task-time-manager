@@ -17,6 +17,5 @@ router.put('/tasks/:taskid',authenticateToken,taskController.editTask);
 router.delete('/tasks/:taskid',authenticateToken,taskController.deleteTask);
 router.patch('/tasks/:taskid/complete',authenticateToken,taskController.markTaskComplete);
 
-//TODO: 
 
 module.exports = router;

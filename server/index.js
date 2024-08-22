@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const routes = require('./routes/index'); 
+const cors = require('cors');
 
 
 const app = express();
@@ -10,6 +11,7 @@ const app = express();
 // Middleware
 //app.use(morgan('dev'));
 app.use(bodyParser.json());
+app.use(cors());
 
 // Routes
 app.use('/', routes);

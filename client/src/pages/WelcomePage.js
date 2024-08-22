@@ -5,18 +5,19 @@ import './WelcomePage.css';
 import NavBar from "../component/NavBar";
 import RegistrationForm from '../component/RegistrationForm';
 import LoginForm from "../component/LoginForm";
+import Notification from "../component/Notification";
 
 
 const WelcomePage = () =>{
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    //FIXME: for the real things
     const [showLoginForm, setShowLoginForm] = useState(false);
+    const [showRegistrationForm, setShowRegistrationForm] = useState(false);
+    const [notification, setNotification] = useState({message: '', type: ''});
+    
     const handleLogin = () =>{
         setShowLoginForm(true);
         setShowRegistrationForm(false);
-        
     }
-    const [showRegistrationForm, setShowRegistrationForm] = useState(false);
     const handleRegister = () =>{
         setShowRegistrationForm(true);
         setShowLoginForm(false);
@@ -26,9 +27,14 @@ const WelcomePage = () =>{
         setShowLoginForm(false);
     }; 
     const handleSuccessfulLogin = () => {
-        setIsLoggedIn(true);
+        handleNotification({message:"Login Succeseful",type: "Success"});
         handleCloseForm(); // Close the login form after successful login
+        setIsLoggedIn(true);
     };
+    const handleNotification=(notification)=>{
+        setNotification(notification);
+        
+    }
 
     return(
         <div className="welcome-container">
@@ -42,16 +48,16 @@ const WelcomePage = () =>{
                 {isLoggedIn && <NavBar/>}
             </div>
             <Footer/>
-            {showRegistrationForm && <RegistrationForm onClose={handleCloseForm} />} {/* Show Registration Form */}
-            {showLoginForm && <LoginForm onSuccessfulLogin={handleSuccessfulLogin} onClose={handleCloseForm} />} {/* Show Login Form */}
+            {showRegistrationForm && <RegistrationForm onClose={handleCloseForm} onNotification={setNotification} />} {/* Show Registration Form */}
+            {showLoginForm && <LoginForm onSuccessfulLogin={handleSuccessfulLogin} onClose={handleCloseForm} onNotification={setNotification}/>} {/* Show Login Form */}
+            {notification.message && <Notification message={notification.message} type={notification.type} onClose={()=>setNotification({message:'',type:''})} />} {/* Show Notification */}
         </div>
     )
-    
-    
 };
 /**
  * TODO: 
- * 1. navbar only seen after successeful login 
- * 2. Add functionality to buttons
+ * 1. Add functionality to buttons
+ * 2. make authentication state global (redux?)
+ * 3. get notifications with errors according to the api requests
  **/
 export default WelcomePage;

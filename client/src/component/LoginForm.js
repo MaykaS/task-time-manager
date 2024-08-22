@@ -1,16 +1,28 @@
 import { useState } from 'react';
 import { IoClose } from "react-icons/io5";
 import './LoginForm.css';
+import axios from 'axios';
+const apiUrl = "//localhost:5000"
 
 
-const LoginForm  = ({onClose, onSuccessfulLogin }) =>{
+const LoginForm  = ({onClose, onSuccessfulLogin, onNotification }) =>{
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSubmit = () => {
-        alert('Login successful!');
-        onSuccessfulLogin();
-        onClose();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try{
+            console.log(apiUrl);
+            const response = await axios.post(`${apiUrl}/login`,{email,password});
+            if(response.status===200){
+                onNotification({message: response.data.message, type: 'Success'});
+                onSuccessfulLogin();
+                onClose();
+            }
+        }
+        catch(error){
+            onNotification({message: error.response?.data?.message || 'Login Failed',type: 'Error'});
+        }
     }
     const handleClose=()=>{
         onClose();

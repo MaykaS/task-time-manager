@@ -19,7 +19,7 @@ Task-Time-Manager is a full-featured task management application built with the 
   <li><strong>Task Views:</strong> 
     <ol>
       <li><strong>List View:</strong> Users can see all their tasks in a standard list format, with options to sort or filter tasks.</li>
-      <li><strong>Calendar View:</strong> Users can view tasks on a calendar, with tasks displayed on their respective due dates. Tasks will be color-coded based on their priority.</li>
+      <li><strong>Calendar View:</strong> Users can view tasks on a calendar, with tasks displayed on their respective due dates.</li>
     </ol>
   </li>
   <li><strong>Database Storage:</strong> All tasks and user information are stored in a MongoDB database, ensuring data persistence across sessions.</li>
