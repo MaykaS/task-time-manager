@@ -5,16 +5,17 @@ import axios from 'axios';
 const apiUrl = "//localhost:5000"
 
 
-const LoginForm  = ({onClose, onSuccessfulLogin, onNotification }) =>{
+const LoginForm  = ({onClose, onSuccessfulLogin, onNotification}) =>{
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try{
-            console.log(apiUrl);
             const response = await axios.post(`${apiUrl}/login`,{email,password});
             if(response.status===200){
+                console.log("response: ", response.data.token);
+                localStorage.setItem('authToken',response.data.token)
                 onNotification({message: response.data.message, type: 'Success'});
                 onSuccessfulLogin();
                 onClose();

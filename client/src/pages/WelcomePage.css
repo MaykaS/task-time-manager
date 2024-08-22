@@ -25,7 +25,7 @@ body {
     top: 10px;
     right: 10px;
 }
-.button {
+.welcome-container button {
     margin-left: 10px;
     padding: 10px 15px;
     background-color: #3c054d; 

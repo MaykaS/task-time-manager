@@ -12,7 +12,6 @@ const RegistrationForm  = ({onNotification, onClose}) =>{
     const handleSubmit = async (e) => {
         e.preventDefault();
         try{
-            console.log(apiUrl);
             const response = await axios.post(`${apiUrl}/register`, {email,password});
             if(response.status===201){
                 onNotification({message: response.data.message, type: 'Success'});

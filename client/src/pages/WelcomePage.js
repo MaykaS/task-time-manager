@@ -32,8 +32,7 @@ const WelcomePage = () =>{
         setIsLoggedIn(true);
     };
     const handleNotification=(notification)=>{
-        setNotification(notification);
-        
+        setNotification(notification);  
     }
 
     return(
@@ -56,8 +55,6 @@ const WelcomePage = () =>{
 };
 /**
  * TODO: 
- * 1. Add functionality to buttons
- * 2. make authentication state global (redux?)
- * 3. get notifications with errors according to the api requests
+ * 1. make authentication state global (redux?) login returnes a token
  **/
 export default WelcomePage;
