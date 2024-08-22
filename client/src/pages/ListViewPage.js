@@ -5,27 +5,32 @@ import './ListViewPage.css';
 import { HiPlus } from "react-icons/hi";
 import Notification from "../component/Notification";
 import TaskList from "../component/TaskList";
+import TaskForm from "../component/TaskForm";
 
 
 const ListViewPage = () =>{
     const [notification, setNotification] = useState({message: '', type: ''});
+    const [showTaskForm,setShowTaskForm] = useState(false);
+    const [tasks,setTasks] = useState([]);
 
-    const AddTask=()=>{
-        alert("adding task!");
+    const AddTask=(newTask)=>{
+        setTasks([...tasks, newTask]);
+        setShowTaskForm(false);
     }
-    const handleNotification=(notification)=>{
-        setNotification(notification);  
-    }    
+    const handleCloseForm = () => {
+        setShowTaskForm(false);
+    };
 
     return(
         <div className="list-container">
             <h1>List view</h1>
             <div className="buttons">
-                    <button className="addbutton" onClick={AddTask}><HiPlus /></button>  
+                    <button className="addbutton" onClick={()=>setShowTaskForm(true)}><HiPlus /></button>  
             </div>
             <NavBar/>
-            <TaskList onNotification={handleNotification}/>
+            <TaskList tasks={tasks} onNotification={setNotification}/>
             <Footer/>
+            {showTaskForm && <TaskForm  onClose={handleCloseForm} onNotification={setNotification} onTaskCreated={AddTask}/>} {/* Show TaskForm Form */}
             {notification.message && <Notification message={notification.message} type={notification.type} onClose={()=>setNotification({message:'',type:''})} />} {/* Show Notification */}
         </div>
         
@@ -34,6 +39,6 @@ const ListViewPage = () =>{
 
 export default ListViewPage;
 //TODO:
-//1. connect add task button to actual new form to add task - can i use the same compinenet to creat and edit?
-//2. list of tasks from the user 
 //3. once press the task it opens up un a pop up 
+//4. filter and orderby
+// 5. task not added automaticaly

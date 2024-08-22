@@ -53,8 +53,4 @@ const WelcomePage = () =>{
         </div>
     )
 };
-/**
- * TODO: 
- * 1. make authentication state global (redux?) login returnes a token
- **/
 export default WelcomePage;

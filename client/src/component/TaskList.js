@@ -40,3 +40,6 @@ const TaskList = ({onNotification})=>{
 }
 
 export default TaskList;
+
+//TODO: 
+//add styling
