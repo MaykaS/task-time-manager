@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Footer from "../component/Footer";
 import NavBar from "../component/NavBar";
 import './ListViewPage.css';

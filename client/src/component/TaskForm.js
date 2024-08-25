@@ -12,15 +12,15 @@ const apiUrl = "//localhost:5000";
 
 
 
-const TaskForm=({onNotification,onClose, onTaskCreated})=>{
+const TaskForm=({onNotification,onClose, onTaskCreated,onTaskUpdated,initialData})=>{
 
-    const[title,setTitle] = useState('');
-    const[category,setCategory] = useState('');
-    const[description,setDescription] = useState('');
-    const[dueDate,setDueDate] = useState('');
-    const[time,setTime] = useState('');
-    const[priority,setPriority] = useState('Low');
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false); // For managing dropdown category
+    const[title,setTitle] = useState(initialData?.title || '');
+    const[category,setCategory] = useState(initialData?.category || '');
+    const[description,setDescription] = useState(initialData?.description || '');
+    const[dueDate,setDueDate] = useState(initialData?.dueDate || '');
+    const[time,setTime] = useState(initialData?.time || '');
+    const[priority,setPriority] = useState(initialData?.priority || 'Low');
+    const[isDropdownOpen, setIsDropdownOpen] = useState(false); // For managing dropdown category
 
 
     const categories=[
@@ -41,17 +41,28 @@ const TaskForm=({onNotification,onClose, onTaskCreated})=>{
         e.preventDefault();
         try{
             const token = localStorage.getItem('authToken');
-            const response = await axios.post(`${apiUrl}/tasks`,
-                {title,category,description,dueDate,time,priority},
-                {headers: { Authorization: `Bearer ${token}` }});
-                if(response.status===201){
-                    onNotification({message: response.data.message, type: 'Success'});
-                    onTaskCreated(response.data.task);
-                    onClose();
-                }
-        }
+            const config = {headers: { Authorization: `Bearer ${token}` }};
+            let response;
+            //editing
+            if(initialData){
+                response = await axios.put(`${apiUrl}/tasks/${initialData._id}`,
+                    {title,category,description,dueDate,time,priority},config)
+                    if(response.status===200){
+                        onNotification({message: response.data.message, type: 'Success'});
+                        onTaskUpdated(response.data.task);
+                    }
+            }else{ //creating
+                response = await axios.post(`${apiUrl}/tasks`,
+                    {title,category,description,dueDate,time,priority},)
+                    if(response.status===201){
+                        onNotification({message: response.data.message, type: 'Success'});
+                        onTaskCreated(response.data.task);
+                    }
+            }
+            onClose();
+        }     
         catch(error){
-            onNotification({message: error.response?.data?.message || 'Creation Failed',type: 'Error'});
+            onNotification({message: error.response?.data?.message || 'Operation Failed',type: 'Error'});
         }
     }
 
@@ -63,7 +74,7 @@ const TaskForm=({onNotification,onClose, onTaskCreated})=>{
         <div className="form-overlay">
             <div className="form-container">
                 <button className="close-button" onClick={handleClose} ><IoClose /></button>
-                <h2>Create Task</h2>
+                <h2>{initialData ? 'Edit Task' : 'Create Task'}</h2>
                 <form onSubmit={handleSubmit}>
                     <div className='form-row'>
                         <label>Title:</label>
@@ -120,3 +131,6 @@ const TaskForm=({onNotification,onClose, onTaskCreated})=>{
 
 }
 export default TaskForm;
+//TODO:
+//1. if new - create
+//2. if old - edit

@@ -2,11 +2,15 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { HiOutlineTrash } from "react-icons/hi2";
 import { CiEdit } from "react-icons/ci";
+import TaskForm from "./TaskForm";
 const apiUrl = "//localhost:5000";
+
 
 const TaskList = ({onNotification})=>{
     const [tasks,setTasks]=useState([]);
     const [toggleTaskId, setToggleTaskId] = useState(null);
+    const [taskToEdit, setTaskToEdit] = useState(null); //for the task to edit
+    
 
     const getTasks = async()=>{
         try{
@@ -26,12 +30,17 @@ const TaskList = ({onNotification})=>{
         setToggleTaskId((prevId) => (prevId === taskId ? null : taskId));
     }
 
-    const editTask=(task_id)=>{
-        console.log(`editing  ${task_id}`);
+    const editTask=(taskId)=>{
+        const taskToEdit = tasks.find(task => task._id === taskId);
+        setTaskToEdit(taskToEdit);
+    }
+
+    const handleTaskUpdate=(updatedTask)=>{
+        setTasks((prevTasks)=>(prevTasks.map(task=>task._id===updatedTask._id ? updatedTask : task)));
+        setTaskToEdit(null);
     }
     
     const deleteTask= async(task_id)=>{
-        console.log(`deleting ${task_id}`);
         try{
             const token = localStorage.getItem('authToken'); // Retrieve the token
             const response = await axios.delete(`${apiUrl}/tasks/${task_id}`,{headers: {
@@ -61,12 +70,20 @@ const TaskList = ({onNotification})=>{
                         </div>
                         
                         {toggleTaskId === task._id && (
-                        <div className="task-extra-details">
-                            {/* Replace with actual details */}
-                            <p><strong>Description:</strong> {task.description}</p>
-                            
-                        </div>
-                    )}
+                            <div className="task-extra-details">
+                                {/* Replace with actual details */}
+                                <p><strong>Description:</strong> {task.description}</p>
+                                
+                            </div>
+                        )}
+                         {taskToEdit && (
+                            <TaskForm
+                                initialData={taskToEdit}
+                                onClose={() => setTaskToEdit(null)}
+                                onNotification={onNotification}
+                                onTaskUpdated={handleTaskUpdate} // Callback for updating the task list after editing
+                            />
+                        )}
                     </div>
                 ))}
             </div>
@@ -75,6 +92,5 @@ const TaskList = ({onNotification})=>{
 
 export default TaskList;
 //press to open task
-// opening
 //editing
 
