@@ -68,8 +68,9 @@ Task-Time-Manager is a full-featured task management application built with the 
 After starting the server, open your browser and go to `http://localhost:3000`. You will be greeted with the login screen.
 
 ### Screenshots
-![Login Screen](client/src/pics/loginScreen.jpg)
 ![Welcome Screen](client/src//pics/welcomeScreen.jpg)
+![Login Screen](client/src/pics/loginScreen.jpg)
+![Dashboard](client/src//pics/dashboard.jpg)
 
 ## Architecture
 Task-Time-Manager follows a traditional MERN stack architecture. The frontend is built with React, which communicates with the backend API built on Node.js and Express. MongoDB is used as the database.

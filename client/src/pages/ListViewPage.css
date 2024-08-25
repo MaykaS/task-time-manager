@@ -25,22 +25,22 @@
     max-width: 800px; /* Set a max width for the task list */
 }
 
-/* Individual task styles */
 .task {
     display: flex;
-    justify-content: space-between; /* Space between task content */
-    align-items: center; /* Center vertically */
+    flex-direction: column; /* Arrange elements in a column */
+    align-items: flex-start; /* Align items to the start of the container */
     padding: 15px; /* Add padding */
     border: 3px solid #dac6db; /* Border for task */
     border-radius: 5px; /* Rounded corners */
     background-color: #dac6db; /* Background color */
     transition: background-color 0.2s; /* Smooth background change */
-    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px; /* Space between tasks */
 }
 
 .task-details {
     display: flex; /* Use flexbox for details */
     gap: 10px; /* Space between details */
+    margin-bottom: 10px; /* Space between details and extra details */
 }
 
 .task:hover {
@@ -49,15 +49,17 @@
 
 .task-title {
     font-weight: bold; /* Bold title */
-    display: flex;
     font-size: 20px;
+    margin-bottom: 5px; /* Space below the title */
 }
+
 .task-actions {
     display: flex;
     gap: 10px; /* Space between the buttons */
+    margin-top: 10px; /* Space between actions and extra details */
 }
 
-.edit-button, .delete-button {
+.edit-button, .delete-button, .open-button {
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -65,10 +67,11 @@
 }
 
 .task-extra-details {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack items vertically */
     padding: 10px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
     margin-top: 5px;
     width: 100%;
+    background-color: transparent; 
+    align-items: flex-start; 
 }
-
