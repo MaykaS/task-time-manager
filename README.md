@@ -97,7 +97,6 @@ All endpoints require a valid JWT token.
 - `PUT /tasks/:taskId` : Modify an existing task. (Token required)
 - `DELETE /tasks/:taskId`: Delete an existing task. (Token required)
 - `PATCH /tasks/:taskId/complete`: Mark an existing task as complete. (Token required)
-- `POST /logout`: Logs out the user by invalidating the token or clearing the session. (Token required)
 
 ~~For detailed API documentation, please refer to the [API Docs](link-to-swagger-or-postman-collection).~~
 

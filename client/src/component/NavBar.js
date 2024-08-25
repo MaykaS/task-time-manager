@@ -1,14 +1,14 @@
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import './NavBar.css';
 import coolpanda from "../pics/coolpanda.jpeg";
-import { useState } from 'react';
 
 
 const NavBar = () => {
-    const [isLoggedOut, setIsLoggedOut] = useState(false);
+    const navigate = useNavigate(); 
     const handleLogout = () =>{
-        setIsLoggedOut(true);
+        localStorage.removeItem('authToken');
         alert("loggedout!");
+        navigate("/");
     }
     return (
         <nav className='navbar'>
@@ -20,11 +20,10 @@ const NavBar = () => {
                 <li>
                     <Link to="/CalendarView">CalendarView</Link>
                 </li>
-                <button onClick={handleLogout}>Logout</button>
+                <button onClick={handleLogout} as={Link} to="/">Logout</button>
             </ul>
         </nav>
     );
 }
 
 export default NavBar;
-//TODO: upon logout - back to welcome page with islogedin val = falses
