@@ -92,5 +92,4 @@ const TaskList = ({onNotification})=>{
 
 export default TaskList;
 //press to open task
-//editing
 

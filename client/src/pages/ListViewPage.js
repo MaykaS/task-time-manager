@@ -40,5 +40,3 @@ const ListViewPage = () =>{
 export default ListViewPage;
 //TODO:
 //4. filter and orderby
-//auto update
-

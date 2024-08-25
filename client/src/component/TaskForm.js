@@ -53,7 +53,7 @@ const TaskForm=({onNotification,onClose, onTaskCreated,onTaskUpdated,initialData
                     }
             }else{ //creating
                 response = await axios.post(`${apiUrl}/tasks`,
-                    {title,category,description,dueDate,time,priority},)
+                    {title,category,description,dueDate,time,priority},config)
                     if(response.status===201){
                         onNotification({message: response.data.message, type: 'Success'});
                         onTaskCreated(response.data.task);
@@ -131,6 +131,4 @@ const TaskForm=({onNotification,onClose, onTaskCreated,onTaskUpdated,initialData
 
 }
 export default TaskForm;
-//TODO:
-//1. if new - create
-//2. if old - edit
+//TODO: auto updat somehow?
