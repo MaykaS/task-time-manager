@@ -3,6 +3,8 @@ import axios from "axios";
 import { HiOutlineTrash } from "react-icons/hi2";
 import { CiEdit } from "react-icons/ci";
 import { FaRegFolderOpen } from "react-icons/fa";
+import { IoMdCheckmark } from "react-icons/io";
+import { MdDoNotDisturb } from "react-icons/md";
 import TaskForm from "./TaskForm";
 const apiUrl = "//localhost:5000";
 
@@ -42,21 +44,51 @@ const TaskList = ({onNotification})=>{
         setTaskToEdit(null);
     }
     
-    const deleteTask= async(task_id)=>{
+    const deleteTask= async(taskId)=>{
         try{
             const token = localStorage.getItem('authToken'); // Retrieve the token
-            const response = await axios.delete(`${apiUrl}/tasks/${task_id}`,{headers: {
+            const response = await axios.delete(`${apiUrl}/tasks/${taskId}`,{headers: {
                 Authorization: `Bearer ${token}` // Set the token in the header
             }});
             if(response.status===200){
-                setTasks((prevTasks) => prevTasks.filter(task => task._id !== task_id));
+                setTasks((prevTasks) => prevTasks.filter(task => task._id !== taskId));
                 onNotification({ message: 'Task Deleted Successefuly', type: 'Success' });
             }
         }
         catch(error){
             onNotification({ message: 'Failed to delete task', type: 'Error' });
         }
-     }
+    }
+
+    const changeComplete = async(taskTitle,taskId, completed)=>{
+        console.log(`complete ${taskId}`);
+        const token = localStorage.getItem('authToken');
+        const config = {headers: { Authorization: `Bearer ${token}` }};
+        let changeTo = !completed;
+        console.log(changeTo);
+        let response;
+        if(completed){ //to-uncomplete
+            response = await axios.put(`${apiUrl}/tasks/${taskId}`,
+                {title:taskTitle,completed:changeTo},config);
+                console.log(response);
+                if(response.status===200){
+                    onNotification({message: response.data.message, type: 'Success'});
+                    handleTaskUpdate(response.data.task);
+                }
+        }else{ //tocomplete
+            try{
+                console.log("tocomplete", taskId);
+                response = await axios.patch(`${apiUrl}/tasks/${taskId}/complete`,{},{headers: { Authorization: `Bearer ${token}` }});
+                if(response.status===200){
+                    onNotification({ message: 'Task Completed Successefuly', type: 'Success' });
+                    handleTaskUpdate(response.data.task);
+                }
+            }
+            catch(error){
+                onNotification({ message: 'Failed to update task', type: 'Error' });
+            }
+        }
+    }
 
     return(
             <div className="task-list">
@@ -76,6 +108,7 @@ const TaskList = ({onNotification})=>{
                             <button className = "open-button" onClick={()=>openTask(task._id)}><FaRegFolderOpen /></button>
                             <button className = "edit-button" onClick={()=>editTask(task._id)}><CiEdit /></button>
                             <button className = "delete-button" onClick={()=>deleteTask(task._id)}><HiOutlineTrash /></button>
+                            <button className = "complete-status-button" onClick={()=>changeComplete(task.title,task._id,task.completed)}> {task.completed ? <IoMdCheckmark/>: <MdDoNotDisturb/> }</button>
                         </div>
                         
                          {taskToEdit && (
@@ -93,4 +126,5 @@ const TaskList = ({onNotification})=>{
 }
 
 export default TaskList;
-
+//TODO:
+//check box to completed - and uncheck 

@@ -59,7 +59,7 @@
     margin-top: 10px; /* Space between actions and extra details */
 }
 
-.edit-button, .delete-button, .open-button {
+.edit-button, .delete-button, .open-button, .complete-status-button {
     background-color: transparent;
     border: none;
     cursor: pointer;

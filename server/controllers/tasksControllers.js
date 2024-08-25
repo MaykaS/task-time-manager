@@ -87,7 +87,7 @@ exports.retriveTask = async(req,res)=>{
 exports.editTask = async(req,res)=>{
     try {
         const id  = req.params.taskid;
-        const { title, category, description, dueDate, time, priority } = req.body;
+        const { title, category, description, dueDate, time, priority,completed } = req.body;
 
         // Extract user ID from the token
         const token = req.headers.authorization.split(' ')[1];
@@ -110,7 +110,7 @@ exports.editTask = async(req,res)=>{
         //find task and update
         const updatedTask = await Task.findByIdAndUpdate(
             id,
-            {title, category, description, dueDate, priority },
+            {title, category, description, dueDate, priority,completed },
             {new: true, runValidators: true} //return updated
         );
 
