@@ -14,7 +14,7 @@ const ListViewPage = () =>{
     const [tasks,setTasks] = useState([]);
 
     const AddTask=(newTask)=>{
-        setTasks([...tasks, newTask]);
+        setTasks((prevTasks) => [...prevTasks, newTask]);
         setShowTaskForm(false);
     }
     const handleCloseForm = () => {
