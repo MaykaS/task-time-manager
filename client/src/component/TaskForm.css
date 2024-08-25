@@ -85,6 +85,39 @@
     background-color: #04AA6D;
     color: white;
   }
+
+  .category-dropdown button {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: left;
+      position: left;
+  }
+
+  .dropdown-list {
+      position: absolute;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 50%;
+      z-index: 10;
+      text-align: left;
+  }
+
+  .dropdown-option {
+      padding: 10px;
+      cursor: pointer;
+  }
+
+  .dropdown-option:hover {
+      background: #f0f0f0;
+  }
+
+  .selected {
+      background: #e0e0e0;
+  }
+
   
   .submit-button {
     background-color: #04AA6D;

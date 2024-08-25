@@ -20,6 +20,8 @@ const TaskForm=({onNotification,onClose, onTaskCreated})=>{
     const[dueDate,setDueDate] = useState('');
     const[time,setTime] = useState('');
     const[priority,setPriority] = useState('Low');
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false); // For managing dropdown category
+
 
     const categories=[
         {name: 'Home', icon: <RiHomeHeartLine />},
@@ -29,6 +31,11 @@ const TaskForm=({onNotification,onClose, onTaskCreated})=>{
         {name: 'Travel', icon: <SlPlane />},
         {name: 'Dylan', icon: <TbDog />}
     ]
+
+    const handleCategorySelect = (cat) => {
+        setCategory(cat.name);
+        setIsDropdownOpen(false); // Close the dropdown when a category is selected
+    };
 
     const handleSubmit= async(e)=>{
         e.preventDefault();
@@ -63,15 +70,25 @@ const TaskForm=({onNotification,onClose, onTaskCreated})=>{
                         <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required />
                     </div>
                     <div className='form-row'>
-                        <label>Category:</label>
-                        <select value={category} onChange={(e) => setCategory(e.target.value)} required>
-                            <option value="" disabled>Select a category</option>
-                            {categories.map((cat) => (
-                                <option key={cat.name} value={cat.name}>
-                                    {cat.icon} {cat.name}
-                                </option>
-                            ))}
-                        </select>
+                    <label>Category:</label>
+                    <div className="category-dropdown">
+                            <button type="button" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+                                {category || "Select a category"}
+                            </button>
+                            {isDropdownOpen && (
+                                <div className="dropdown-list">
+                                    {categories.map((cat) => (
+                                        <div
+                                            key={cat.name}
+                                            className={`dropdown-option ${category === cat.name ? 'selected' : ''}`}
+                                            onClick={() => handleCategorySelect(cat)}
+                                        >
+                                            {cat.icon} {cat.name}
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
                     </div>
                     <div className='form-row'>
                         <label>Description:</label>
