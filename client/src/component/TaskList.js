@@ -13,7 +13,31 @@ const TaskList = ({onNotification})=>{
     const [tasks,setTasks]=useState([]);
     const [taskToEdit, setTaskToEdit] = useState(null); //for the task to edit
     const [openTaskId, setOpenTaskId] = useState(null);
+    const [filterStatus, setFilterStatus] = useState('all'); // 'all', 'completed', 'uncompleted'
+    const [sortOrder, setSortOrder] = useState('title'); // 'title' or 'date'
     
+    const filterTasks = (tasks) => {
+        if (filterStatus === 'completed') {
+            return tasks.filter(task => task.completed);
+        } else if (filterStatus === 'uncompleted') {
+            return tasks.filter(task => !task.completed);
+        }
+        return tasks; // Return all tasks if no filter is applied
+    };
+    
+    const sortTasks = (tasks) => {
+        return tasks.sort((a, b) => {
+            if (sortOrder === 'title') {
+                return a.title.localeCompare(b.title);
+            } else if (sortOrder === 'date') {
+                return new Date(a.dueDate) - new Date(b.dueDate);
+            }
+            return tasks; // Return unsorted if no sort order is set
+        });
+    };
+
+    const filteredTasks = filterTasks(tasks);
+    const sortedTasks = sortTasks(filteredTasks);
 
     const getTasks = async()=>{
         try{
@@ -92,7 +116,18 @@ const TaskList = ({onNotification})=>{
 
     return(
             <div className="task-list">
-                {tasks.map((task) => (
+                <div className="filter-sort">
+                    <select onChange={(e) => setFilterStatus(e.target.value)} value={filterStatus}>
+                        <option value="all">All Tasks</option>
+                        <option value="completed">Completed Tasks</option>
+                        <option value="uncompleted">Uncompleted Tasks</option>
+                    </select>
+                    <select onChange={(e) => setSortOrder(e.target.value)} value={sortOrder}>
+                        <option value="title">Sort by Title</option>
+                        <option value="date">Sort by Date</option>
+                    </select>
+                </div>
+                {sortedTasks.map((task) => (
                     <div className="task" key={task._id} > {/* Assuming each task has a unique id */}
                         <div className="task-title">{task.title}</div>
                         <div className="task-details">
@@ -127,4 +162,4 @@ const TaskList = ({onNotification})=>{
 
 export default TaskList;
 //TODO:
-//check box to completed - and uncheck 
+//sort
