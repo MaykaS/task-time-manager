@@ -46,7 +46,7 @@ const TaskForm=({onNotification,onClose, onTaskCreated})=>{
                 {headers: { Authorization: `Bearer ${token}` }});
                 if(response.status===201){
                     onNotification({message: response.data.message, type: 'Success'});
-                    onTaskCreated(response.data);
+                    onTaskCreated(response.data.task);
                     onClose();
                 }
         }
@@ -120,6 +120,3 @@ const TaskForm=({onNotification,onClose, onTaskCreated})=>{
 
 }
 export default TaskForm;
-//TODO: 
-//1. choose from specific categories
-//2. fix the style

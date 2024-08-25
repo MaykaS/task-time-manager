@@ -14,7 +14,7 @@ const ListViewPage = () =>{
     const [tasks,setTasks] = useState([]);
 
     const AddTask=(newTask)=>{
-        setTasks((prevTasks) => [...prevTasks, newTask]);
+        setTasks((prevTask) => [...prevTask, newTask]);
         setShowTaskForm(false);
     }
     const handleCloseForm = () => {
@@ -28,7 +28,7 @@ const ListViewPage = () =>{
                     <button className="addbutton" onClick={()=>setShowTaskForm(true)}><HiPlus /></button>  
             </div>
             <NavBar/>
-            <TaskList tasks={tasks} onNotification={setNotification}/>
+            <TaskList tasks={tasks} onNotification={setNotification} />
             <Footer/>
             {showTaskForm && <TaskForm  onClose={handleCloseForm} onNotification={setNotification} onTaskCreated={AddTask}/>} {/* Show TaskForm Form */}
             {notification.message && <Notification message={notification.message} type={notification.type} onClose={()=>setNotification({message:'',type:''})} />} {/* Show Notification */}
@@ -39,6 +39,6 @@ const ListViewPage = () =>{
 
 export default ListViewPage;
 //TODO:
-//3. once press the task it opens up un a pop up 
 //4. filter and orderby
-// 5. task not added automaticaly
+//auto update
+

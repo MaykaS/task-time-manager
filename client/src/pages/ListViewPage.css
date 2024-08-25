@@ -16,3 +16,59 @@
     justify-content: center; /* Center icon horizontally */
     font-size: 18px; /* Adjust font size for icon */
 }
+/* Task list styles */
+.task-list {
+    display: flex;
+    flex-direction: column; /* Stack tasks vertically */
+    gap: 15px; /* Space between tasks */
+    margin: 0 auto; /* Center the task list */
+    max-width: 800px; /* Set a max width for the task list */
+}
+
+/* Individual task styles */
+.task {
+    display: flex;
+    justify-content: space-between; /* Space between task content */
+    align-items: center; /* Center vertically */
+    padding: 15px; /* Add padding */
+    border: 3px solid #dac6db; /* Border for task */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #dac6db; /* Background color */
+    transition: background-color 0.2s; /* Smooth background change */
+    border-bottom: 1px solid #ddd;
+}
+
+.task-details {
+    display: flex; /* Use flexbox for details */
+    gap: 10px; /* Space between details */
+}
+
+.task:hover {
+    background-color: #f6ecf7; /* Change background on hover */
+}
+
+.task-title {
+    font-weight: bold; /* Bold title */
+    display: flex;
+    font-size: 20px;
+}
+.task-actions {
+    display: flex;
+    gap: 10px; /* Space between the buttons */
+}
+
+.edit-button, .delete-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.task-extra-details {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    margin-top: 5px;
+    width: 100%;
+}
+

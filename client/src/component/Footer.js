@@ -9,3 +9,4 @@ const Footer = () => (
 );
 
 export default Footer;
+//TODO: footer at the bottom no matter what
